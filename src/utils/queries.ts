@@ -5,6 +5,7 @@ query ($username: String!) {
         socialAccounts
         githubUrl
         linkedinUrl
+        twitterUrl
         profile {
             realName
             websites

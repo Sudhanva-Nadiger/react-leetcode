@@ -17,6 +17,7 @@ export type MatchedUser = {
     socialAccounts: unknown;
     githubUrl: string | null;
     linkedinUrl: string | null;
+    twitterUrl: string | null;
     profile: Profile;
     activeBadge: {
         id: string;
