@@ -1,13 +1,22 @@
 {
-  "name": "leetcodeprofilecomponent",
-  "private": true,
+  "name": "react-leetcode",
+  "description": "React utiliy components for leetcode. Users can use the components in their app/portfolio to showcase their leetcode profile.",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "author": "Sudhanva Nadiger",
+  "license": "MIT",
+  "homepage": "https://github.com/Sudhanva-Nadiger/react-leetcode",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sudhanva-Nadiger/react-leetcode"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ci": "npm run build && npm run lint && npm run test"
   },
   "peerDependencies": {
     "react": "^18.2.0",
@@ -30,5 +39,12 @@
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "leetcode",
+    "component",
+    "UI component",
+    "javascript"
+  ]
 }
