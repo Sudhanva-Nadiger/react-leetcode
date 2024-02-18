@@ -1,4 +1,3 @@
-import './App.css'
 import UserProfileDetails from './components/userProfileDetails/UserProfileDetails'
 
 function App() {
