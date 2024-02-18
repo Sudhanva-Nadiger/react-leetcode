@@ -15,7 +15,7 @@ import {
 
 class LeetcodeQuery {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    async fetchData(query: string, username: string, ...rest: any) {
+    private async fetchData(query: string, username: string, ...rest: any) {
         const res = await fetch('/leetcode', {
             method: 'POST',
             mode: 'cors',
@@ -37,8 +37,8 @@ class LeetcodeQuery {
     }
 
     async fetchUserProfile(userName: string) : Promise<MatchedUser>{
-        const res = await this.fetchData(profileQuery, userName);
-        return res.data.matchedUser;
+        const { data } = await this.fetchData(profileQuery, userName);
+        return data.matchedUser;
     }
 
     async fetchUserContestDetails(userName: string): Promise<UserContestInfo> {
@@ -46,7 +46,13 @@ class LeetcodeQuery {
     }
 
     async fetchUserSolvedProblemsStats(userName: string): Promise<SubmitStats> {
-        return await this.fetchData(solvedProblemsStatsQuery, userName);
+        const { data } = await this.fetchData(solvedProblemsStatsQuery, userName);
+        const stats = {} as SubmitStats;
+
+        stats.allQuestionsCount = data.allQuestionsCount;
+        stats.acSubmissionNum = data.matchedUser.submitStats.acSubmissionNum;
+    
+        return stats;
     }
 
     async fetchUserRecentSubmissions(userName: string, limit = 20): Promise<RecentSubmission[]> {

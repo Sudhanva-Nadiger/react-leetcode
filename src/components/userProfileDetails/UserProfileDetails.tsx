@@ -12,6 +12,7 @@ import { IoSchoolOutline } from "react-icons/io5";
 import { SlGlobe } from "react-icons/sl";
 import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { FiTag } from "react-icons/fi";
+import LoadingOrError from "../LoadingOrError";
 
 type Props = {
     userName: string;
@@ -48,32 +49,13 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
 
     const { data, loading: isLoading, error } = useFetch<MatchedUser>(fetchData);
 
-    if(isLoading) {
-        if(loadingComponent) {
-            return (
-                <div id="user_defined_loading_component" className="flex items-center justify-center gap-2">
-                    {loadingComponent}
-                </div>
-            )
-        }
-
+    if(isLoading || error) {
         return (
-            <div id="loadig_container" className="flex flex-col">
-                <div id="loading_dots_container" className="flex items-center justify-center gap-2 animate-pulse">
-                    <div className="w-1 h-1 bg-gray-600 rounded-full" />
-                    <div className="w-1 h-1 bg-gray-600 rounded-full" />
-                    <div className="w-1 h-1 bg-gray-600 rounded-full" />
-                </div>
-                <p id="loading_text" className="text-[10px] text-white font-bold text-center ml-[12px]">Loading...</p>
-            </div>
-        )
-    }
-
-    if(error) {
-        return (
-            <div id="error_container" className="text-red-500">
-                Somethinng went wrong, Could not load data
-            </div>
+            <LoadingOrError
+                loading={isLoading}
+                error={error}
+                loadingComponent={loadingComponent}
+            />
         )
     }
 

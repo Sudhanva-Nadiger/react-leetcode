@@ -5,7 +5,22 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        slide: {
+          '0%': {
+            width: "0%",
+          },
+
+          '100%': {
+            width: '100%',
+          },
+        },
+      },
+      animation: {
+        slide: 'slide 2s ease',
+      },
+    },
   },
   plugins: [],
 }

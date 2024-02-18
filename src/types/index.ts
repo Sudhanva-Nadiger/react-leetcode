@@ -76,8 +76,8 @@ export type TotalSubmissionNum = {
 }
 
 export type SubmitStats = {
+    allQuestionsCount: AllQuestionsCount[],
     acSubmissionNum: AcSubmissionNum[];
-    totalSubmissionNum: TotalSubmissionNum[];
 }
 
 export type RecentSubmission = {
