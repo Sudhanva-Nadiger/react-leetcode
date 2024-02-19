@@ -78,6 +78,7 @@ export type TotalSubmissionNum = {
 export type SubmitStats = {
     allQuestionsCount: AllQuestionsCount[],
     acSubmissionNum: AcSubmissionNum[];
+    rank: string
 }
 
 export type RecentSubmission = {

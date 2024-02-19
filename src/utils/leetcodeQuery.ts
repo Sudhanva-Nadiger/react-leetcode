@@ -51,6 +51,7 @@ class LeetcodeQuery {
 
         stats.allQuestionsCount = data.allQuestionsCount;
         stats.acSubmissionNum = data.matchedUser.submitStats.acSubmissionNum;
+        stats.rank = data.matchedUser.profile.ranking
     
         return stats;
     }

@@ -63,6 +63,9 @@ query ($username: String!) {
         count
     }
     matchedUser(username: $username) {
+        profile {
+            ranking
+        }
         submitStats {
             acSubmissionNum {
                 difficulty
