@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useMemo } from 'react';
+import { forwardRef, useCallback, useMemo, useState } from 'react';
 import { useFetch } from '../../hooks';
 import { type UserContestInfo as TUserContestInfo } from '../../types';
 import leetcodeQuery from '../../utils/leetcodeQuery';
@@ -6,10 +6,11 @@ import ContestGraph from './ContestGraph';
 import { getCordinates } from '../../utils';
 import ContestStaticData from './ContestStaticData';
 import LoadingOrError from '../LoadingOrError';
+import DynamicContestData from './DynamicContestData';
 
 type Props = {
   userName: string;
-  theme: {
+  theme?: {
     primaryColor?: string;
     secondaryColor?: string;
     bgColor?: string;
@@ -24,6 +25,8 @@ const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
     bgColor: "rgba(68,64,60,1)"
 },
 }: Props, ref) => {
+
+  const [activeIndex, setActiveIndex] = useState(-1);
 
   const fetchData = useCallback(() => {
     return leetcodeQuery.fetchUserContestDetails(userName);
@@ -43,9 +46,20 @@ const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
   );
 
   return (
-    <div ref={ref} className='sm:w-[700px] w-full p-4 rounded-lg' style={{background:theme.bgColor}}>
-      <ContestStaticData contestData={userContestRanking!} />
+    <div 
+      id="user_contest_info_container" 
+      ref={ref} 
+      className='sm:w-[500px] w-full p-4 rounded-lg' 
+      style={{background:theme.bgColor}}
+    >
+      {activeIndex === -1 ? (
+        <ContestStaticData contestData={userContestRanking!} />
+        ) : (
+          <DynamicContestData contestData={data.userContestRankingHistory[activeIndex]} />
+        )}
       <ContestGraph
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
         data={points}
       />
     </div>

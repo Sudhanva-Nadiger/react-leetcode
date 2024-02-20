@@ -3,7 +3,7 @@ function App() {
 
   return (
     <div className='bg-black w-sceen h-screen flex justify-center items-center'>
-      <UserContestInfo userName='sudhanva_nadiger__' />
+      <UserContestInfo userName='_Aditya_Hegde_' />
     </div>
   )
 }
