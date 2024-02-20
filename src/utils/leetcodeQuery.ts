@@ -1,4 +1,5 @@
 import type { 
+    ContestInfo,
     MatchedUser, 
     RecentSubmission, 
     SubmitStats, 
@@ -42,7 +43,13 @@ class LeetcodeQuery {
     }
 
     async fetchUserContestDetails(userName: string): Promise<UserContestInfo> {
-        return await this.fetchData(contestDetailsQuery, userName);
+        const { data } = await this.fetchData(contestDetailsQuery, userName);
+        const contestDetail = {} as UserContestInfo;
+        
+        contestDetail.userContestRanking = data.userContestRanking;
+        contestDetail.userContestRankingHistory = (data.userContestRankingHistory as Array<ContestInfo>).filter((info) => info.attended);
+
+        return contestDetail;
     }
 
     async fetchUserSolvedProblemsStats(userName: string): Promise<SubmitStats> {

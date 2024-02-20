@@ -49,7 +49,7 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
 
     const { data, loading: isLoading, error } = useFetch<MatchedUser>(fetchData);
 
-    if(isLoading || error) {
+    if(isLoading || error || !data) {
         return (
             <LoadingOrError
                 loading={isLoading}
@@ -59,8 +59,8 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
         )
     }
 
-    const {userAvatar, realName, ranking, countryName, company, school, skillTags, websites} = data?.profile || {};
-    const { githubUrl, linkedinUrl, twitterUrl } = data || {};
+    const {userAvatar, realName, ranking, countryName, company, school, skillTags, websites} = data.profile;
+    const { githubUrl, linkedinUrl, twitterUrl } = data;
 
     return (
         <div id="user_profile_detail_container" ref={ref} className="shadow-md flex flex-col rounded-2xl w-[320px] bg-stone-700 text-cyan-400 items-start p-4">
@@ -91,7 +91,7 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
                 </div>
             </div>
 
-            <p className="text-sm font-semibold my-3 text-start text-gray-300">{data?.profile.aboutMe}</p>
+            <p className="text-sm font-semibold my-3 text-start text-gray-300">{data.profile.aboutMe}</p>
 
             <div 
                 id="user_misc_details"

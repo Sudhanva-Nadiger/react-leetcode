@@ -1,52 +1,55 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { forwardRef, useCallback, useMemo } from 'react';
+import { useFetch } from '../../hooks';
+import { type UserContestInfo as TUserContestInfo } from '../../types';
+import leetcodeQuery from '../../utils/leetcodeQuery';
+import ContestGraph from './ContestGraph';
+import { getCordinates } from '../../utils';
+import ContestStaticData from './ContestStaticData';
+import LoadingOrError from '../LoadingOrError';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top' as const,
-    },
-    title: {
-      display: true,
-      text: 'Chart.js Line Chart',
-    },
-  },
-};
-
-const labels = ['January', 'July', "wkejx"];
-
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-  ],
-};
-
-export default function Chart() {
-  return <Line options={options} data={data} />;
+type Props = {
+  userName: string;
+  theme: {
+    primaryColor?: string;
+    secondaryColor?: string;
+    bgColor?: string;
+  }
 }
+
+const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
+  userName,
+  theme = {
+    primaryColor: "rgba(34,211,238,1)",
+    secondaryColor: "rgba(209,213,219,1)",
+    bgColor: "rgba(68,64,60,1)"
+},
+}: Props, ref) => {
+
+  const fetchData = useCallback(() => {
+    return leetcodeQuery.fetchUserContestDetails(userName);
+  }, [userName]);
+
+  const { data, loading: isLoading, error } = useFetch<TUserContestInfo>(fetchData);
+
+  const { userContestRankingHistory: history, userContestRanking } = data || {};
+
+  const points = useMemo(() => {
+    if(!history) return []
+    return getCordinates(history);
+  }, [history]);
+
+  if (!data || isLoading || error) return (
+    <LoadingOrError error={error} loading={isLoading} />
+  );
+
+  return (
+    <div ref={ref} className='sm:w-[700px] w-full p-4 rounded-lg' style={{background:theme.bgColor}}>
+      <ContestStaticData contestData={userContestRanking!} />
+      <ContestGraph
+        data={points}
+      />
+    </div>
+  )
+})
+
+export default UserContestInfo;
