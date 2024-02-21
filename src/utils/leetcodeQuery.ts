@@ -15,9 +15,16 @@ import {
     heatMapQuery
 } from './queries'
 
-class LeetcodeQuery {
+export class LeetcodeQuery {
+    private isTestMode: boolean = false;
+    constructor(isTestMode = false) {
+        this.isTestMode = isTestMode;
+    }
+
     private async fetchData(query: string, username: string) {
-        const res = await fetch('/leetcode', {
+        const url = !this.isTestMode ? '/leetcode' : 'https://leetcode.com/graphql';
+
+        const res = await fetch(url, {
             method: 'POST',
             mode: 'cors',
             headers: {

@@ -1,6 +1,7 @@
-import {expect, describe, it, expectTypeOf} from 'vitest'
+import {expect, describe, it, expectTypeOf } from 'vitest'
 import { LineChartCalculations, calcOpacity, getCordinates, getPath } from '../utils'
-import { ContestInfo } from '../types'
+import { ContestInfo, HeatMapDetail, MatchedUser, RecentSubmission, SubmitStats, UserContestInfo } from '../types'
+import { LeetcodeQuery } from '../utils/leetcodeQuery'
 
 const mockContestHistory: ContestInfo[]  = [
     {
@@ -137,6 +138,43 @@ describe("Tests for utility functions", () => {
 
     it("should give correct output for calculating opacity", () => {
         expect(calcOpacity(10)).toBe(1);
+    })
+
+})
+
+describe("Tests for fetching details from leetcode api", () => {
+    const leetcodeQuery = new LeetcodeQuery(true);
+    const userName = "sudhanva_nadiger__";
+
+    it("Should return null for invalid username", async () => {
+        const fakeUserName = "fake_user_name";
+        expect(await leetcodeQuery.fetchUserProfile(fakeUserName)).toBeNull();
+    })
+
+    it("Should return proper user details", async () => {
+        const matchedUser = await leetcodeQuery.fetchUserProfile(userName);
+        expectTypeOf(matchedUser).toEqualTypeOf<MatchedUser>();
+        expect(matchedUser.username).toBe(userName);
+    })
+
+    it("Should return proper contest details", async () => {
+        const contestDetail = await leetcodeQuery.fetchUserContestDetails(userName);
+        expectTypeOf(contestDetail).toEqualTypeOf<UserContestInfo>();
+    })
+
+    it("Should return proper problem stats", async () => {
+        const contestDetail = await leetcodeQuery.fetchUserSolvedProblemsStats(userName);
+        expectTypeOf(contestDetail).toEqualTypeOf<SubmitStats>();
+    })
+
+    it("Should return proper recent submission", async () => {
+        const contestDetail = await leetcodeQuery.fetchUserRecentSubmissions(userName);
+        expectTypeOf(contestDetail).toEqualTypeOf<RecentSubmission[]>();
+    })
+
+    it("Should return proper contest details", async () => {
+        const contestDetail = await leetcodeQuery.fetchUserHeatMap(userName);
+        expectTypeOf(contestDetail).toEqualTypeOf<HeatMapDetail[]>();
     })
 
 })
