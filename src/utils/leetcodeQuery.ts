@@ -16,7 +16,6 @@ import {
 } from './queries'
 
 class LeetcodeQuery {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private async fetchData(query: string, username: string) {
         const res = await fetch('/leetcode', {
             method: 'POST',
