@@ -1,9 +1,9 @@
-import UserContestInfo from './components/contestInfo/UserContestInfo'
+import HeatMap from './components/heatMap/HeatMap'
 function App() {
 
   return (
     <div className='bg-black w-sceen h-screen flex justify-center items-center'>
-      <UserContestInfo userName='_Aditya_Hegde_' />
+      <HeatMap userName='_Aditya_Hegde_' />
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import type { 
     ContestInfo,
+    HeatMapDetail,
     MatchedUser, 
     RecentSubmission, 
     SubmitStats, 
@@ -64,13 +65,28 @@ class LeetcodeQuery {
     }
 
     async fetchUserRecentSubmissions(userName: string, limit = 20): Promise<RecentSubmission[]> {
-        userName;
         limit = (limit ? Math.min(limit, 20) : 20);
         return await this.fetchData(recentSubmissionQuery, userName, limit) || [];
     }
 
-    async fetchUserHeatMap(userName: string) {
-        return await this.fetchData(heatMapQuery, userName);
+    async fetchUserHeatMap(userName: string): Promise<HeatMapDetail[]>{
+        const { data } =  await this.fetchData(heatMapQuery, userName);
+        const json_string = data.matchedUser.submissionCalendar;
+
+        const submissionCalendar = JSON.parse(json_string);
+
+        const heatMap:HeatMapDetail[] = new Array(365);
+        const today = Math.floor(Date.now() / 86400_000) * 86400;
+
+        for(let i = 0; i < 364; i++) {
+            const timestamp = today - i * 86400
+            const count = submissionCalendar[timestamp] || 0;
+            
+            const newDate = new Date(timestamp*1000).toLocaleString().split(',')[0];
+            heatMap[i] = {date: newDate, submissionCount: count}
+        }
+        
+        return heatMap;
     }
 }
 

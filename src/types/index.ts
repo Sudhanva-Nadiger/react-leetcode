@@ -88,3 +88,8 @@ export type RecentSubmission = {
     statusDisplay: string;
     lang: string;
 }
+
+export type HeatMapDetail = {
+    date: string;
+    submissionCount: number;
+}

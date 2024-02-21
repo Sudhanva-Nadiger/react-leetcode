@@ -64,3 +64,7 @@ export function LineChartCalculations(width: number, height: number, data: (Cont
         points
     }
 }
+
+export function calcOpacity(count: number, max = 8): number {
+    return Math.sin(Math.min(1, (count + 0.5) / max) * Math.PI * 0.5);
+}
