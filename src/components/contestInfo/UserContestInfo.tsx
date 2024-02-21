@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useMemo, useState } from 'react';
+import { forwardRef, memo, useCallback, useMemo, useState } from 'react';
 import { useFetch } from '../../hooks';
 import { type UserContestInfo as TUserContestInfo } from '../../types';
 import leetcodeQuery from '../../utils/leetcodeQuery';
@@ -66,4 +66,6 @@ const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
   )
 })
 
-export default UserContestInfo;
+const MemoizedUserContestInfo = memo(UserContestInfo);
+
+export default MemoizedUserContestInfo;

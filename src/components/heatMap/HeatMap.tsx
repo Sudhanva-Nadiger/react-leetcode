@@ -1,4 +1,4 @@
-import { forwardRef, useCallback } from "react";
+import { forwardRef, memo, useCallback } from "react";
 import leetcodeQuery from "../../utils/leetcodeQuery";
 import { useFetch } from "../../hooks";
 import LoadingOrError from "../LoadingOrError";
@@ -103,4 +103,6 @@ const HeatMap = forwardRef<HTMLDivElement, Props>(({
     )
 })
 
-export default HeatMap;
+const MemoizedHeatMap = memo(HeatMap);
+
+export default MemoizedHeatMap;

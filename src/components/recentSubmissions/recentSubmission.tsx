@@ -1,4 +1,4 @@
-import { forwardRef, useCallback } from "react";
+import { forwardRef, memo, useCallback } from "react";
 import leetcodeQuery from "../../utils/leetcodeQuery";
 import { useFetch } from "../../hooks";
 import { RecentSubmission as TRecentSubmission } from "../../types";
@@ -70,4 +70,6 @@ const RecentSubmission = forwardRef<HTMLDivElement, Props>(({
     )
 })
 
-export default RecentSubmission
+const MemoizedRecentSubmission = memo(RecentSubmission);
+
+export default MemoizedRecentSubmission;

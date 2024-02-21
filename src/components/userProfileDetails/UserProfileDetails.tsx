@@ -3,7 +3,7 @@ import {type ReactNode, forwardRef, useCallback, memo } from "react";
 import leetcodeQuery from "../../utils/leetcodeQuery"
 import { MatchedUser } from "../../types"
 import { useFetch } from "../../hooks";
-import MiscellaneousDetai from "./MiscellaneousDetai";
+import MiscellaneousDetail from "./MiscellaneousDetail";
 import { getPath } from "../../utils";
 
 import { TiLocationOutline } from "react-icons/ti";
@@ -98,28 +98,28 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
                 className="overflow-hidden w-full text-ellipsis"
             >
                {company && !hideCompany && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_company"
                         icon={<MdOutlineWorkOutline />}
                         title={company}
                      />
                )} 
                {countryName && !hideLocation && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_location"
                         icon={<TiLocationOutline />}
                         title={countryName}
                      />
                )} 
                {school && !hideSchool && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_school"
                         icon={<IoSchoolOutline />}
                         title={school}
                      />
                )} 
                {websites && !hideWebsite && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_website"
                         icon={<SlGlobe />}
                         title={websites[0]}
@@ -127,7 +127,7 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
                      />
                )} 
                {githubUrl && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_github"
                         icon={<FaGithub />}
                         title={getPath(githubUrl)}
@@ -135,7 +135,7 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
                      />
                )} 
                {linkedinUrl && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_linkedin"
                         icon={<FaLinkedinIn />}
                         title={getPath(linkedinUrl)}
@@ -143,7 +143,7 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
                      />
                )} 
                {twitterUrl && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_twitter"
                         icon={<FaXTwitter />}
                         title={getPath(twitterUrl)}
@@ -151,7 +151,7 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
                      />
                )} 
                {skillTags && !hideSkills && (
-                    <MiscellaneousDetai
+                    <MiscellaneousDetail
                         id="user_twitter"
                         icon={<FiTag className="-rotate-90" />}
                         title={skillTags.join(', ')}

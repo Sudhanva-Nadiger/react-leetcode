@@ -1,4 +1,4 @@
-import {type ReactNode, memo, useEffect, useRef, useState } from "react";
+import {type ReactNode, useEffect, useRef, useState } from "react";
 
 export type Props = {
     icon: JSX.Element;
@@ -7,7 +7,7 @@ export type Props = {
     link?: string;
 }
 
-function MiscellaneousDetai({
+function MiscellaneousDetail({
     icon,
     title,
     id,
@@ -64,7 +64,4 @@ function MiscellaneousDetai({
     </div>
   )
 }
-
-const MemoComponent = memo(MiscellaneousDetai);
-
-export default MemoComponent;
+export default MiscellaneousDetail;

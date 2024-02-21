@@ -1,4 +1,4 @@
-import { forwardRef, useCallback } from "react";
+import { forwardRef, memo, useCallback } from "react";
 
 import { useFetch } from "../../hooks"
 import leetcodeQuery from "../../utils/leetcodeQuery";
@@ -108,4 +108,6 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
     )
 })
 
-export default SolvedProblemsStats
+const MemoizedSolvedProblemsStats = memo(SolvedProblemsStats);
+
+export default MemoizedSolvedProblemsStats;
