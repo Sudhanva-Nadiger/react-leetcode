@@ -17,7 +17,7 @@ import {
 
 class LeetcodeQuery {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private async fetchData(query: string, username: string, ...rest: any) {
+    private async fetchData(query: string, username: string) {
         const res = await fetch('/leetcode', {
             method: 'POST',
             mode: 'cors',
@@ -30,7 +30,6 @@ class LeetcodeQuery {
                 query: query, 
                 variables: { 
                     username: username, 
-                    ...rest
                 } 
             }),
         })
@@ -64,9 +63,9 @@ class LeetcodeQuery {
         return stats;
     }
 
-    async fetchUserRecentSubmissions(userName: string, limit = 20): Promise<RecentSubmission[]> {
-        limit = (limit ? Math.min(limit, 20) : 20);
-        return await this.fetchData(recentSubmissionQuery, userName, limit) || [];
+    async fetchUserRecentSubmissions(userName: string): Promise<RecentSubmission[]> {
+        const { data } = await this.fetchData(recentSubmissionQuery, userName);
+        return data.recentSubmissionList;
     }
 
     async fetchUserHeatMap(userName: string): Promise<HeatMapDetail[]>{

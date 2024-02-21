@@ -83,8 +83,8 @@ query ($username: String!) {
 `;
 
 const recentSubmissionQuery = `
-query ($username: String!, $limit: Number) {
-    recentSubmissionList(username: $username, limit: $limit) {
+query ($username: String!) {
+    recentSubmissionList(username: $username, limit: 10) {
         title
         titleSlug
         timestamp

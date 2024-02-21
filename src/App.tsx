@@ -1,9 +1,9 @@
-import HeatMap from './components/heatMap/HeatMap'
+import RecentSubmission from './components/recentSubmissions/recentSubmission'
 function App() {
 
   return (
     <div className='bg-black w-sceen h-screen flex justify-center items-center'>
-      <HeatMap userName='_Aditya_Hegde_' />
+      <RecentSubmission userName='sudhanva_nadiger__' />
     </div>
   )
 }

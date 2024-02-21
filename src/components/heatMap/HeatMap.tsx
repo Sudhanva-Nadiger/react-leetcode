@@ -12,7 +12,7 @@ type Props = {
         secondaryColor?: string;
         bgColor?: string;
     },
-    showUSerName?: boolean;
+    showUserName?: boolean;
 }
 
 const Block = ({
@@ -41,7 +41,8 @@ const HeatMap = forwardRef<HTMLDivElement, Props>(({
         primaryColor: "rgba(34,211,238,1)",
         secondaryColor: "rgba(209,213,219,1)",
         bgColor: "rgba(68,64,60,1)"
-    }
+    },
+    showUserName = false
 }, ref) => {
 
     const fetchData = useCallback(() => {
@@ -71,7 +72,10 @@ const HeatMap = forwardRef<HTMLDivElement, Props>(({
             ref={ref} 
             className="w-full sm:w-[500px] gap-1 rounded-lg p-4 flex flex-col items-center justify-center"
         >
-            <h2 style={{color:theme.primaryColor}} className="text-start w-full">Heatmap (Last 52 Weeks)</h2>
+            <h2 style={{color:theme.primaryColor}} className="flex justify-between font-medium w-full">
+                <span>Heatmap (Last 52 Weeks)</span>
+                {showUserName && <span>{userName}</span> }
+            </h2>
             <div style={{
                 width: "100%",
                 height: "100%",
