@@ -42,21 +42,28 @@ const RecentSubmission = forwardRef<HTMLDivElement, Props>(({
     }
 
     return (
-        <div ref={ref} className="w-full h-full p-2">
+        <div
+            id="recent-submissions_container"
+            ref={ref}
+            className="w-full h-full p-2"
+        >
             <div className="flex flex-col w-full h-full">
                 <div style={{
                     color: theme.secondaryColor
                 }} className="flex items-center justify-between w-full">
                     <h2 className="text-lg font-bold">Recent Submissions</h2>
                 </div>
-                <div className="w-full h-full mt-2">
+                <div
+                    id="recent-submissions_list"
+                    className="w-full h-full mt-2"
+                >
                     {data.map((submission: TRecentSubmission, i: number) => (
                         <div key={i} style={{
                             backgroundColor: theme.bgColor,
                             color: theme.secondaryColor
                         }} className="flex items-center justify-between w-full h-10 mt-2 px-2 py-1 rounded-md">
                             <div className="flex items-center">
-                                <div className={`w-4 h-4 rounded-full ${submission.statusDisplay==="Accepted" ? "bg-green-500" : "bg-red-500"} `} />
+                                <div className={`w-4 h-4 rounded-full ${submission.statusDisplay === "Accepted" ? "bg-green-500" : "bg-red-500"} `} />
                                 <p style={{
                                     color: theme.primaryColor
                                 }} className="ml-2 text-sm">{submission.title}</p>

@@ -34,8 +34,8 @@ function MiscellaneousDetail({
 
         {
           showTooltip && (
-            <span className='misc_content_title_container has-tooltip w-full overflow-hidden text-start text-nowrap text-ellipsis'>
-              <span className='tooltip rounded text-sm shadow-lg p-2 -ml-[0%] bg-black text-white mt-7'>{title}</span>
+            <span className='misc_content_title_container group w-full overflow-hidden text-start text-nowrap text-ellipsis'>
+              <span className='invisible absolute group-hover:visible group-hover:z-50 rounded text-sm shadow-lg p-2 -ml-[0%] bg-black text-white mt-7'>{title}</span>
               <span className='misc_content_title text-base text-start'>{title}</span>
             </span>
           )

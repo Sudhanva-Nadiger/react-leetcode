@@ -25,7 +25,7 @@ const LineChart = ({
 }: Props) => {
 
     const values = useMemo(
-        () => LineChartCalculations(width, height, data, precision), 
+        () => LineChartCalculations(width, height, data, precision),
         [data, height, precision, width]
     );
 
@@ -42,11 +42,11 @@ const LineChart = ({
             viewBox={`0 0 ${width} ${height}`}
             id="line_chart_container"
         >
-            <LabelsXAxis 
-                height={height} 
-                width={width} 
-                data={[data[0], data[data.length - 1]]} 
-                {...values} 
+            <LabelsXAxis
+                height={height}
+                width={width}
+                data={[data[0], data[data.length - 1]]}
+                {...values}
             />
 
             <polyline

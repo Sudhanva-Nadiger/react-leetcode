@@ -32,9 +32,9 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
         return leetcodeQuery.fetchUserSolvedProblemsStats(userName);
     }, [userName])
 
-    const { data, loading: isLoading, error }  = useFetch<SubmitStats>(fetchData);
+    const { data, loading: isLoading, error } = useFetch<SubmitStats>(fetchData);
 
-    if(isLoading || error || !data) {
+    if (isLoading || error || !data) {
         return (
             <LoadingOrError
                 loading={isLoading}
@@ -43,30 +43,30 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
             />
         )
     }
-    
+
 
     const [totalQuestions, ...difficultyWiseTotal] = data?.allQuestionsCount || [];
     const [totalSolved, ...sectionWiseSolved] = data?.acSubmissionNum || [];
 
-    
+
     const getColor = {
         "Easy": "bg-green-600",
         "Medium": "bg-amber-300",
         "Hard": "bg-red-500"
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any;
 
     return (
         <div
             id="solved_problems_stats_container"
-            ref={ref} 
+            ref={ref}
             className="flex flex-col w-[400px] items-center rounded-xl px-4 py-2 gap-2"
-            style={{background:theme.bgColor}}
+            style={{ background: theme.bgColor }}
         >
 
             <div id="solved_problems_stats_label" className="w-full flex justify-between">
-                <span className="text-sm font-semibold" style={{color: theme.secondaryColor}}>{showUserName ? userName : "Solved Problems"}</span>
-                {showUserName && <span className="text-sm font-semibold pr-1" style={{color: theme.secondaryColor}}>{"#" + data.rank}</span>}
+                <span className="text-sm font-semibold" style={{ color: theme.secondaryColor }}>{showUserName ? userName : "Solved Problems"}</span>
+                {showUserName && <span className="text-sm font-semibold pr-1" style={{ color: theme.secondaryColor }}>{"#" + data.rank}</span>}
             </div>
 
             <div id="solved_problems_stats_progress_deails" className="w-full flex justify-between">
@@ -87,14 +87,14 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
                             return (
                                 <div id={`progress_bar_${difficulty.difficulty}`} key={difficulty.difficulty} className="progress_bar mt-3 first:mt-0 first:space-y-0 space-y-1 w-full">
                                     <div className="flex justify-between px-1">
-                                        <span className="text-sm" style={{color: theme?.secondaryColor}}>{difficulty.difficulty}</span>
+                                        <span className="text-sm" style={{ color: theme?.secondaryColor }}>{difficulty.difficulty}</span>
                                         <span className="w-[4.5rem] text-end">
-                                            <span className="font-semibold" style={{color: theme.primaryColor}}>{section.count}</span> 
-                                            <span className="text-xs pb-2" style={{color: theme.secondaryColor}}>{" /" + difficulty.count}</span>
+                                            <span className="font-semibold" style={{ color: theme.primaryColor }}>{section.count}</span>
+                                            <span className="text-xs pb-2" style={{ color: theme.secondaryColor }}>{" /" + difficulty.count}</span>
                                         </span>
                                     </div>
                                     <div className={`${getColor[difficulty.difficulty]} progress_label bg-opacity-20 w-full  rounded-full h-2 mb-4 dark:bg-gray-700`}>
-                                        <div style={{width:`${percentage}%`}}>
+                                        <div style={{ width: `${percentage}%` }}>
                                             <div className={`${getColor[difficulty.difficulty]} animate-slide h-2 rounded-full dark:bg-blue-500`} />
                                         </div>
                                     </div>
@@ -102,7 +102,7 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
                             )
                         })
                     }
-            </div>
+                </div>
             </div>
         </div>
     )

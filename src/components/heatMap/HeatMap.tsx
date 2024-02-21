@@ -64,28 +64,35 @@ const HeatMap = forwardRef<HTMLDivElement, Props>(({
     const last = data.length - 1;
 
     return (
-        <div 
+        <div
             id="heat_map_container"
             style={{
                 background: theme.bgColor
             }}
-            ref={ref} 
+            ref={ref}
             className="w-full sm:w-[500px] gap-1 rounded-lg p-4 flex flex-col items-center justify-center"
         >
-            <h2 style={{color:theme.primaryColor}} className="flex justify-between font-medium w-full">
+            <h2
+                id="heat_map_title"
+                style={{ color: theme.primaryColor }}
+                className="flex justify-between font-medium w-full"
+            >
                 <span>Heatmap (Last 52 Weeks)</span>
-                {showUserName && <span>{userName}</span> }
+                {showUserName && <span>{userName}</span>}
             </h2>
-            <div style={{
-                width: "100%",
-                height: "100%",
-                display: 'grid',
-                gridTemplateRows: 'repeat(7, 1fr)',
-                gridAutoFlow: 'column',
-                rowGap: '1px',
-                columnGap: '2px',
-                justifyContent: 'center',
-            }}>
+            <div
+                id="heat_map"
+                style={{
+                    width: "100%",
+                    height: "100%",
+                    display: 'grid',
+                    gridTemplateRows: 'repeat(7, 1fr)',
+                    gridAutoFlow: 'column',
+                    rowGap: '1px',
+                    columnGap: '2px',
+                    justifyContent: 'center',
+                }}
+            >
                 {data.map((element, index) => (
                     <Block
                         key={index}
@@ -95,9 +102,13 @@ const HeatMap = forwardRef<HTMLDivElement, Props>(({
                     />
                 ))}
             </div>
-            <div style={{color:theme.secondaryColor}} className="flex justify-between w-full text-xs">
+            <div
+                id="heat_map_date_range"
+                style={{ color: theme.secondaryColor }}
+                className="flex justify-between w-full text-xs"
+            >
                 <span>{data[0].date}</span>
-                <span>{data[last-1].date}</span>
+                <span>{data[last - 1].date}</span>
             </div>
         </div>
     )
