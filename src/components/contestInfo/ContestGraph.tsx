@@ -29,6 +29,8 @@ const LineChart = ({
         [data, height, precision, width]
     );
 
+    if(values === undefined) return <></>
+
     const {
         padding,
         chartWidth,

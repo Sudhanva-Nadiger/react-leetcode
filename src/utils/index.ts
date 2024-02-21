@@ -6,6 +6,13 @@ export function getPath(url: string) {
 }
 
 export function getCordinates(history: ContestInfo[]) {
+    if(history.length === 0) return [];
+
+    if(history.length === 1) return [{
+        x: 0,
+        y: 0,
+        ...history[0]
+    }]
     const startTime = history[0].contest.startTime;
     const endTime = history[history.length - 1].contest.startTime;
     const [minRating, maxRating] = history.reduce(
@@ -36,10 +43,12 @@ export function getCordinates(history: ContestInfo[]) {
 }
 
 export function LineChartCalculations(width: number, height: number, data: (ContestInfo & { x: number, y: number })[], precision: number) {
+    if(data.length === 0) return undefined;
+
     const FONT_SIZE = width / 50;
 
-    const maximumXFromData = Math.max(...data.map(e => e.x));
-    const maximumYFromData = Math.max(...data.map(e => e.y));
+    const maximumXFromData = Math.max(...data.map(e => e.x)) || 1;
+    const maximumYFromData = Math.max(...data.map(e => e.y)) || 1;
 
     const digits =
         parseFloat(maximumYFromData.toString()).toFixed(precision).length + 1;

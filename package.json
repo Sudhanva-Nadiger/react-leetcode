@@ -17,7 +17,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "vitest",
-    "ci": "npm run lint && npm run build && npm run test"
+    "ci": "npm run lint &&  npm run test && npm run build"
   },
   "peerDependencies": {
     "react": "^18.2.0",
