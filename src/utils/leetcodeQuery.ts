@@ -16,13 +16,12 @@ import {
 } from './queries'
 
 export class LeetcodeQuery {
-    private isTestMode: boolean = false;
-    constructor(isTestMode = false) {
-        this.isTestMode = isTestMode;
-    }
-
     private async fetchData(query: string, username: string) {
-        const url = !this.isTestMode ? '/leetcode' : 'https://leetcode.com/graphql';
+        let url = '/leetcode';
+
+        if(import.meta.env.MODE === 'test' || import.meta.env.MODE === 'production') {
+            url = 'https://leetcode.com/graphql';
+        }
 
         const res = await fetch(url, {
             method: 'POST',

@@ -14,15 +14,13 @@ import { FaGithub, FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { FiTag } from "react-icons/fi";
 import LoadingOrError from "../LoadingOrError";
 
-type Props = {
+export type Props = {
     userName: string;
     theme?: {
         primaryColor?: string;
         secondaryColor?: string;
         bgColor?: string;
     }
-    className?: string;
-    asLink?: boolean;
     loadingComponent?: ReactNode
     showRank?: boolean;
     hideLocation?: boolean;

@@ -17,6 +17,7 @@ export default defineConfig({
         target: 'https://leetcode.com/graphql',
         changeOrigin: true,
         secure: false,
+        rewrite: (path) => path.replace(/^\/leetcode/, '')
       },
     }
   },

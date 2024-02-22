@@ -143,7 +143,7 @@ describe("Tests for utility functions", () => {
 })
 
 describe("Tests for fetching details from leetcode api", () => {
-    const leetcodeQuery = new LeetcodeQuery(true);
+    const leetcodeQuery = new LeetcodeQuery();
     const userName = "sudhanva_nadiger__";
 
     it("Should return null for invalid username", async () => {
