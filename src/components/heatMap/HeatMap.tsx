@@ -4,7 +4,7 @@ import { useFetch } from "../../hooks";
 import LoadingOrError from "../LoadingOrError";
 import { calcOpacity } from "../../utils"
 
-type Props = {
+export type Props = {
     userName: string,
     loadingComponent?: JSX.Element
     theme?: {
@@ -28,7 +28,7 @@ const Block = ({
                 style={{
                     backgroundColor: `rgba(20, 255, 20, ${calcOpacity(count)})`,
                 }}
-                className="w-[7px] h-[7px] rounded-sm border border-black border-opacity-30"
+                className="sq-block w-[7px] h-[7px] rounded-sm border border-black border-opacity-30"
             />
         </>
     )
