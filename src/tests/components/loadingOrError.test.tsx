@@ -5,7 +5,7 @@ import LoadingOrError from '../../components/LoadingOrError'
 describe("Tests for loading or error component", () => {
     it("Should render loading ui", () => {
         const { container } = render(<LoadingOrError loading={true} />);
-        const loadingContainer = container.querySelector("#loadig_container");
+        const loadingContainer = container.querySelector("#loading_container");
         expect(loadingContainer).toBeInTheDocument();
 
         const loadingText = screen.getByText("Loading...");
@@ -15,7 +15,7 @@ describe("Tests for loading or error component", () => {
     it("Should render user defined loading component", () => {
         const { container } = render(<LoadingOrError loading={true} loadingComponent={<div/>} />);
         const userDefinedLoadingComponent = container.querySelector("#user_defined_loading_component");
-        const loadingContainer = container.querySelector("#loadig_container");
+        const loadingContainer = container.querySelector("#loading_container");
         expect(loadingContainer).not.toBeInTheDocument();
         expect(userDefinedLoadingComponent).toBeInTheDocument();
     })

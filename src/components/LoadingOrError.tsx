@@ -22,7 +22,7 @@ function LoadingOrError({
         }
 
         return (
-            <div id="loadig_container" className="flex flex-col">
+            <div id="loading_container" className="flex flex-col">
                 <div id="loading_dots_container" className="flex items-center justify-center gap-2 animate-pulse">
                     <div className="w-1 h-1 bg-gray-600 rounded-full" />
                     <div className="w-1 h-1 bg-gray-600 rounded-full" />

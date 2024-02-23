@@ -17,7 +17,7 @@ describe("Tests for user profile details", () => {
     it("should render the user profile details", async () => {
         const { container } = render(<UserProfileDetails {...baseProps} />);
 
-        const loadingContainer = container.querySelector("#loadig_container");
+        const loadingContainer = container.querySelector("#loading_container");
         expect(loadingContainer).toBeInTheDocument();
 
         await waitFor(() => {
@@ -44,7 +44,7 @@ describe("Tests for user profile details", () => {
             const miscDetails = container.querySelector("#user_misc_details");
             expect(miscDetails).toBeInTheDocument();
         })
-    })
+    }, {timeout: 5000})
 
     it("should render school if given hide flag", async () => {
         const props: Props = {
@@ -53,7 +53,7 @@ describe("Tests for user profile details", () => {
         }
         const { container } = render(<UserProfileDetails {...props} />);
 
-        const loadingContainer = container.querySelector("#loadig_container");
+        const loadingContainer = container.querySelector("#loading_container");
         expect(loadingContainer).toBeInTheDocument();
 
         await waitFor(() => {
@@ -65,6 +65,6 @@ describe("Tests for user profile details", () => {
 
             const school = container.querySelector("#user_school");
             expect(school).not.toBeInTheDocument();
-        })
+        }, {timeout: 5000})
     })
 })

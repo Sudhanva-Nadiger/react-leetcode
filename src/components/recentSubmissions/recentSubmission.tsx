@@ -2,9 +2,9 @@ import { forwardRef, memo, useCallback } from "react";
 import leetcodeQuery from "../../utils/leetcodeQuery";
 import { useFetch } from "../../hooks";
 import { RecentSubmission as TRecentSubmission } from "../../types";
-import MemoizedLoadingOrError from "../LoadingOrError";
+import LoadingOrError from "../LoadingOrError";
 
-type Props = {
+export type Props = {
     userName: string,
     loadingComponent?: JSX.Element
     theme?: {
@@ -12,7 +12,6 @@ type Props = {
         secondaryColor?: string;
         bgColor?: string;
     },
-    limit?: number
 }
 
 const RecentSubmission = forwardRef<HTMLDivElement, Props>(({
@@ -33,7 +32,7 @@ const RecentSubmission = forwardRef<HTMLDivElement, Props>(({
 
     if (isLoading || error || !data) {
         return (
-            <MemoizedLoadingOrError
+            <LoadingOrError
                 loading={isLoading}
                 error={error}
                 loadingComponent={loadingComponent}
@@ -61,7 +60,7 @@ const RecentSubmission = forwardRef<HTMLDivElement, Props>(({
                         <div key={i} style={{
                             backgroundColor: theme.bgColor,
                             color: theme.secondaryColor
-                        }} className="flex items-center justify-between w-full h-10 mt-2 px-2 py-1 rounded-md">
+                        }} className="flex items-center justify-between w-full h-10 mt-2 px-2 py-1 rounded-md recent_submission_tile">
                             <div className="flex items-center">
                                 <div className={`w-4 h-4 rounded-full ${submission.statusDisplay === "Accepted" ? "bg-green-500" : "bg-red-500"} `} />
                                 <p style={{

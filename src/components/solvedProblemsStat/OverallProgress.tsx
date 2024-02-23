@@ -65,7 +65,7 @@ function OverallProgress({
                 style={{transform:"rotate(90deg) translate(0, -156px)"}}
             >   
                 {showPercentage ? percentageBefore : totalSolved}
-                {showPercentage && <tspan font-size="12px">{"." + percentageAfter}</tspan>}
+                {showPercentage && <tspan fontSize="12px">{"." + percentageAfter}</tspan>}
             </text>
             
             <text

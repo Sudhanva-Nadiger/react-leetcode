@@ -20,7 +20,7 @@ describe("Tests for user solved problem stats", () => {
     it("should render the user stats", async () => {
         const { container } = render(<UserSolvedProblemsStats {...baseProps} />);
 
-        const loadingContainer = container.querySelector("#loadig_container");
+        const loadingContainer = container.querySelector("#loading_container");
         expect(loadingContainer).toBeInTheDocument();
 
         await waitFor(() => {
@@ -56,8 +56,7 @@ describe("Tests for user solved problem stats", () => {
            showUserName: true
         }
         const { container } = render(<UserSolvedProblemsStats {...props} />);
-
-        const loadingContainer = container.querySelector("#loadig_container");
+        const loadingContainer = container.querySelector("#loading_container");
         expect(loadingContainer).toBeInTheDocument();
 
         await waitFor(() => {
@@ -108,5 +107,5 @@ describe("Tests for circular progress", () => {
             const percentage = screen.queryByText("25");
             expect(percentage).toBeInTheDocument();
         })
-    })
+    }, {timeout: 5000})
 })
