@@ -6,7 +6,7 @@ import { SubmitStats } from "../../types";
 import LoadingOrError from "../LoadingOrError";
 import OverallProgress from "./OverallProgress";
 
-type Props = {
+export type Props = {
     userName: string,
     loadingComponent?: React.ReactNode,
     theme?: {
@@ -76,7 +76,7 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
                     primaryColor="#fff"
                 />
 
-                <div id="linear_pogress_container" className="w-full">
+                <div id="linear_progress_container" className="w-full">
                     {
                         difficultyWiseTotal.map((difficulty, index) => {
                             const section = sectionWiseSolved[index];

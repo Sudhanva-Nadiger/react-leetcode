@@ -40,7 +40,7 @@ function OverallProgress({
             <circle id="base_circle" r={radius} cx="80" cy="80" 
                 fill="transparent" 
                 stroke="#e0e0e0"
-                stroke-width="5px" 
+                strokeWidth="5px" 
                 opacity={0.3}
             />
             <circle 
@@ -59,7 +59,7 @@ function OverallProgress({
             <text
                 id="progress_percentage"
                 x="50%" y="50%" 
-                fill={primaryColor} font-size="30px" 
+                fill={primaryColor} fontSize="30px" 
                 textAnchor="middle" 
                 fontWeight="bold"
                 style={{transform:"rotate(90deg) translate(0, -156px)"}}
@@ -71,7 +71,7 @@ function OverallProgress({
             <text
                 id="progress_label"
                 x="62px" y="100px"
-                fill={secondaryColor} font-size="12px" 
+                fill={secondaryColor} fontSize="12px" 
                 style={{transform:"rotate(90deg) translate(0, -156px)"}}
             >   
                 solved
