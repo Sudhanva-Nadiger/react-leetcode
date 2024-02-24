@@ -106,6 +106,6 @@ describe("Tests for circular progress", () => {
 
             const percentage = screen.queryByText("25");
             expect(percentage).toBeInTheDocument();
-        })
-    }, {timeout: 5000})
+        }, {timeout: 5000})
+    })
 })

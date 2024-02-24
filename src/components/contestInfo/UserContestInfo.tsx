@@ -8,7 +8,7 @@ import ContestStaticData from './ContestStaticData';
 import LoadingOrError from '../LoadingOrError';
 import DynamicContestData from './DynamicContestData';
 
-type Props = {
+export type Props = {
   userName: string;
   theme?: {
     primaryColor?: string;
