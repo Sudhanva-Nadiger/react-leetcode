@@ -3,7 +3,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { userEvent } from '@testing-library/user-event'
 
 import type { Props } from "../../components/solvedProblemsStat/SolvedProblemsStats";
-import { UserSolvedProblemsStats } from "../../components";
+import { UserSolvedProblemsStats } from "../..";
 import OverallProgress from "../../components/solvedProblemsStat/OverallProgress";
 
 const baseProps: Props  = {

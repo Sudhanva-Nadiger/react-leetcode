@@ -1,7 +1,4 @@
 {
-  "env": {
-    "BRANCH": "deploy-test"
-  },
     "rewrites": [
       {
         "source": "/leetcode",

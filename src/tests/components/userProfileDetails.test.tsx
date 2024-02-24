@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 
 import type { Props } from "../../components/userProfileDetails/UserProfileDetails";
-import { UserProfileDetails } from "../../components";
+import { UserProfileDetails } from "../..";
 
 const baseProps: Props  = {
     userName: "sudhanva_nadiger__",

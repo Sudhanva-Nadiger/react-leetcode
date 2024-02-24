@@ -3,6 +3,9 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/index.ts",
+    "./node_modules/react-leetcode/**/*.{html,js,jsx,ts,tsx}",
+    './src/components/**/*.{html,js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {

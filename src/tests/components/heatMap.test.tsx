@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { render, waitFor } from "@testing-library/react";
 
-import { UserHeatMap } from "../../components";
+import { UserHeatMap } from "../..";
 import { Props } from "../../components/heatMap/HeatMap";
 
 const baseProps: Props = {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { render, waitFor } from "@testing-library/react";
 
-import { UserRecentSubmission } from "../../components";
+import { UserRecentSubmission } from "../..";
 import { Props } from "../../components/recentSubmissions/recentSubmission";
 
 const baseProps: Props = {

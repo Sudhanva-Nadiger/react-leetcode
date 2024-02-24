@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { render, waitFor } from "@testing-library/react";
 import { userEvent } from '@testing-library/user-event'
 
-import { UserContestInfo } from "../../components";
+import { UserContestInfo } from "../..";
 import { Props } from "../../components/heatMap/HeatMap";
 
 const baseProps: Props = {
