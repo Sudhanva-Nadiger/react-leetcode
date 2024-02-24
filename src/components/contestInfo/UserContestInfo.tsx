@@ -17,6 +17,20 @@ export type Props = {
   }
 }
 
+/**
+ * Component for displaying user's contest information.
+ * 
+ * Props for the UserContestInfo component.
+ * @property {string} userName - The username of the user.
+ * @property {object} [theme] - The theme configuration.
+ * @property {string} [theme.primaryColor="rgba(34,211,238,1)"] - The primary color.
+ * @property {string} [theme.secondaryColor="rgba(209,213,219,1)"] - The secondary color.
+ * @property {string} [theme.bgColor="rgba(68,64,60,1)"] - The background color.
+
+ * @param {Props} props - The props object.
+ * @param {React.Ref<HTMLDivElement>} ref - The ref to attach to the component's root element.
+ * @returns {JSX.Element} - The JSX element representing the UserContestInfo component.
+ */
 const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
   userName,
   theme = {

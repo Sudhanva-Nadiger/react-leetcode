@@ -17,6 +17,20 @@ export type Props = {
     showUserName?: boolean;
 }
 
+
+/**
+ * Component for displaying statistics of solved problems by a user.
+ * @param {object} props - The props object.
+ * @param {React.Ref<HTMLDivElement>} ref - The ref to attach to the component's root element.
+ * @param {string} props.userName - The username of the user.
+ * @param {React.ReactNode} [props.loadingComponent] - Custom loading component to be displayed.
+ * @param {object} [props.theme] - An object containing custom theme colors.
+ * @param {string} [props.theme.primaryColor="rgba(34,211,238,1)"] - The primary color.
+ * @param {string} [props.theme.secondaryColor="rgba(209,213,219,1)"] - The secondary color.
+ * @param {string} [props.theme.bgColor="rgba(68,64,60,1)"] - The background color.
+ * @param {boolean} [props.showUserName=true] - Flag indicating whether to show the user's name.
+ * @returns {JSX.Element} The JSX element representing the solved problems statistics.
+ */
 const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
     userName,
     loadingComponent,

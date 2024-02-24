@@ -1,11 +1,24 @@
 import { ContestInfo } from "../types";
 
-export function getPath(url: string) {
+/**
+ * Extracts the last segment of a URL path.
+ * @param {string} url - The URL from which to extract the path.
+ * @returns {string} The last segment of the URL path.
+ * @example
+ * // returns 'page.html'
+ * getPath('https://example.com/path/to/page.html');
+ */
+export function getPath(url: string): string {
     const arr = url.split('/')
     return arr[arr.length-1];
 }
 
-export function getCordinates(history: ContestInfo[]) {
+/**
+ * Calculates coordinates for plotting a rating history graph based on contest information.
+ * @param {ContestInfo[]} history - Array of contest information representing rating history.
+ * @returns {object[]} An array of objects containing x and y coordinates along with contest information.
+ */
+export function getCordinates(history: ContestInfo[]): ({ x: number, y: number } & ContestInfo)[]{
     if(history.length === 0) return [];
 
     if(history.length === 1) return [{
@@ -42,6 +55,14 @@ export function getCordinates(history: ContestInfo[]) {
     return points;
 }
 
+/**
+ * Calculates various parameters required for rendering a line chart.
+ * @param {number} width - The width of the chart area.
+ * @param {number} height - The height of the chart area.
+ * @param {Array<ContestInfo & { x: number, y: number }>} data - Array of data points with x and y coordinates.
+ * @param {number} precision - The precision of the data values.
+ * @returns  An object containing calculated parameters for rendering the chart, or undefined if data is empty.
+ */
 export function LineChartCalculations(width: number, height: number, data: (ContestInfo & { x: number, y: number })[], precision: number) {
     if(data.length === 0) return undefined;
 
@@ -74,6 +95,12 @@ export function LineChartCalculations(width: number, height: number, data: (Cont
     }
 }
 
-export function calcOpacity(count: number, max = 8): number {
+/**
+ * Calculates opacity based on the count and maximum value.
+ * @param {number} count - The count value.
+ * @param {number} [max=8] - The maximum value. Default is 8.
+ * @returns {number} The calculated opacity value.
+ */
+export function calcOpacity(count: number, max: number = 8): number {
     return Math.sin(Math.min(1, (count + 0.5) / max) * Math.PI * 0.5);
 }

@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
 
+
+/**
+ * Custom React hook for fetching data asynchronously.
+ * @param {Function} fetchData - A function that returns a promise which resolves to the fetched data.
+ * @returns An object containing the fetched data, loading state, and error state.
+ * @template T - The type of data being fetched.
+ */
 export function useFetch<T>(fetchData: () => Promise<T>) {
     const [data, setData] = useState<T>();
     const [loading, setLoading] = useState(false);

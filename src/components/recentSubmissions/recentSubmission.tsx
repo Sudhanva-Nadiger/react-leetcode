@@ -14,6 +14,18 @@ export type Props = {
     },
 }
 
+/**
+ * Component for displaying recent submissions of a user.
+ * @param {object} props - The props object.
+ * @param {React.Ref<HTMLDivElement>} ref - The ref to attach to the component's root element.
+ * @param {string} props.userName - The username of the user.
+ * @param {JSX.Element} [props.loadingComponent] - The loading component to display.
+ * @param {object} [props.theme] - The theme configuration.
+ * @param {string} [props.theme.primaryColor="rgba(34,211,238,1)"] - The primary color.
+ * @param {string} [props.theme.secondaryColor="rgba(209,213,219,1)"] - The secondary color.
+ * @param {string} [props.theme.bgColor="rgba(68,64,60,1)"] - The background color.
+ * @returns {JSX.Element} The JSX element representing the recent submissions component.
+ */
 const RecentSubmission = forwardRef<HTMLDivElement, Props>(({
     userName,
     loadingComponent,

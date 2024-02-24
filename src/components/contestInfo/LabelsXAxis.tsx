@@ -11,6 +11,23 @@ type Props = {
     secondaryColor?: string;
 }
 
+
+/**
+ * Component for rendering labels on the X-axis of a chart.
+ * 
+ * @param {object} props - Props for the LabelsXAxis component.
+ * @param {number} props.height - The height of the chart.
+ * @param {number} props.width - The width of the chart.
+ * @param {number} props.padding - The padding of the chart.
+ * @param {number} props.chartWidth - The width of the chart area.
+ * @param {Array<ContestInfo & { x: number, y: number }>} props.data - The data points for the X-axis labels.
+ * @param {number} props.maximumXFromData - The maximum X-value from the data.
+ * @param {number} props.FONT_SIZE - The font size of the labels.
+ * @param {string} [props.secondaryColor="rgba(209,213,219,1)"] - The color of the labels.
+ * 
+ * @returns An array of JSX elements representing the X-axis labels.
+ */
+
 const LabelsXAxis = ({
     data,
     height,
@@ -34,7 +51,6 @@ const LabelsXAxis = ({
                 style={{
                     fill: secondaryColor,
                     fontSize: FONT_SIZE,
-                    fontFamily: "Helvetica",
                 }}
             >
                 {year}

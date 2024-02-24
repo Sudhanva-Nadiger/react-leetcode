@@ -7,6 +7,15 @@ type Props = {
     secondaryColor?: string
 }
 
+/**
+ * Component for displaying overall progress of solving problems.
+ * @param {object} props - The props object.
+ * @param {number} props.totalQuestions - The total number of questions.
+ * @param {number} props.totalSolved - The number of questions solved.
+ * @param {string} [props.primaryColor="rgba(34,211,238,1)"] - The primary color.
+ * @param {string} [props.secondaryColor="rgba(209,213,219,1)"] - The secondary color.
+ * @returns The JSX element representing the overall progress.
+ */
 function OverallProgress({
     totalQuestions,
     totalSolved,

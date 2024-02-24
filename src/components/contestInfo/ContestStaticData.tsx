@@ -9,6 +9,18 @@ type Props = {
     }
 }
 
+/**
+ * Component for displaying static contest data.
+ * 
+ * @param {object} props - Props for the ContestStaticData component.
+ * @param {ContestRanking} props.contestData - The contest data to be displayed.
+ * @param {object} [props.theme] - The theme object containing color values.
+ * @param {string} [props.theme.primaryColor="rgba(34,211,238,1)"] - The primary color for text.
+ * @param {string} [props.theme.secondaryColor="rgba(209,213,219,1)"] - The secondary color for text.
+ * @param {string} [props.theme.bgColor="rgba(68,64,60,1)"] - The background color.
+ * 
+ * @returns A React component for displaying static contest data.
+ */
 function ContestStaticData({
     contestData,
     theme = {

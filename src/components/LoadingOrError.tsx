@@ -6,6 +6,15 @@ type Props = {
     loadingComponent?: React.ReactNode;
 }
 
+
+/**
+ * Component for rendering loading state or error state.
+ * @param {object} props - The props object.
+ * @param {boolean} [props.loading] - Flag indicating whether data is loading.
+ * @param {unknown} [props.error] - The error object, if any.
+ * @param {React.ReactNode} [props.loadingComponent] - Custom loading component to be displayed.
+ * @returns The JSX element representing loading state, error state, or an empty element.
+ */
 function LoadingOrError({
     loading: isLoading,
     error,

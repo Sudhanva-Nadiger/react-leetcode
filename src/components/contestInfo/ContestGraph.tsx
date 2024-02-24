@@ -15,6 +15,20 @@ type Props = {
     setActiveIndex: (index: number) => void;
 }
 
+
+/**
+ * Component for rendering a line chart.
+ * 
+ * @param {object} props - Props for the LineChart component.
+ * @param {ContestInfo[]} props.data - The data points for the line chart.
+ * @param {number} [props.height=150] - The height of the chart.
+ * @param {number} [props.width=500] - The width of the chart.
+ * @param {number} [props.precision=2] - The precision of the chart.
+ * @param {number} props.activeIndex - The index of the active data point.
+ * @param {function} props.setActiveIndex - Function to set the active index.
+ * 
+ * @returns A React component for rendering a line chart.
+ */
 const LineChart = ({
     data,
     height = 150,

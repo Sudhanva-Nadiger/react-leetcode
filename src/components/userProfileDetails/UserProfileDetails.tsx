@@ -30,6 +30,25 @@ export type Props = {
     hideCompany?: boolean;
 }
 
+
+/**
+ * Component for displaying user profile details fetched from LeetCode.
+ * @param {object} props - The props object.
+ * @param {React.Ref<HTMLDivElement>} ref - The ref to attach to the component's root element.
+ * @param {string} props.userName - The username of the user.
+ * @param {object} [props.theme] - An object containing custom theme colors.
+ * @param {string} [props.theme.primaryColor] - The primary color.
+ * @param {string} [props.theme.secondaryColor] - The secondary color.
+ * @param {string} [props.theme.bgColor] - The background color.
+ * @param {React.ReactNode} [props.loadingComponent] - Custom loading component to be displayed.
+ * @param {boolean} [props.showRank=true] - Flag indicating whether to show the user's rank.
+ * @param {boolean} [props.hideLocation=false] - Flag indicating whether to hide the user's location.
+ * @param {boolean} [props.hideSchool=false] - Flag indicating whether to hide the user's school.
+ * @param {boolean} [props.hideWebsite=false] - Flag indicating whether to hide the user's website.
+ * @param {boolean} [props.hideCompany=false] - Flag indicating whether to hide the user's company.
+ * @param {boolean} [props.hideSkills=false] - Flag indicating whether to hide the user's skills.
+ * @returns The JSX element representing the user profile details.
+ */
 const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
     userName,
     loadingComponent,

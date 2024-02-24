@@ -7,6 +7,15 @@ export type Props = {
     link?: string;
 }
 
+/**
+ * Component for displaying miscellaneous details with an icon and optional tooltip.
+ * @param {object} props - The props object.
+ * @param {JSX.Element} props.icon - The icon element to display.
+ * @param {ReactNode} props.title - The title or content to display.
+ * @param {string} props.id - The unique identifier for the component.
+ * @param {string} [props.link] - The optional link URL.
+ * @returns The JSX element representing the miscellaneous detail.
+ */
 function MiscellaneousDetail({
     icon,
     title,
