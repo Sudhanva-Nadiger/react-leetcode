@@ -19,7 +19,7 @@ export class LeetcodeQuery {
     private async fetchData(query: string, username: string) {
         let url = '/leetcode';
 
-        if(import.meta.env.MODE === 'test' || import.meta.env.MODE === 'production') {
+        if(import.meta.env.MODE === 'test') {
             url = 'https://leetcode.com/graphql';
         }
 

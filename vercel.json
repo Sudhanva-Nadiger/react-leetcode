@@ -1,7 +1,10 @@
 {
+  "env": {
+    "BRANCH": "deploy-test"
+  },
     "rewrites": [
       {
-        "source": "/blog",
+        "source": "/leetcode",
         "destination": "https://leetcode.com/graphql"
       }
     ]
