@@ -1,5 +1,5 @@
-import { UserContestInfo, UserHeatMap, UserRecentSubmission, UserSolvedProblemsStats } from '.'
-import  UserProfileDetails from './components/userProfileDetails/UserProfileDetails'
+import {UserProfileDetails, UserContestInfo, UserHeatMap, UserRecentSubmission, UserSolvedProblemsStats } from 'react-leetcode'
+
 
 function App() {
   return (
