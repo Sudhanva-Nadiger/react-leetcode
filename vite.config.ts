@@ -61,6 +61,7 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/tests/setup",
+    pool: 'forks'
   },
   server: {
     open: true,

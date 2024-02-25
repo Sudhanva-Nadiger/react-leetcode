@@ -43,8 +43,8 @@ describe("Tests for user profile details", () => {
 
             const miscDetails = container.querySelector("#user_misc_details");
             expect(miscDetails).toBeInTheDocument();
-        })
-    }, {timeout: 5000})
+        }, {timeout: 5000})
+    })
 
     it("should render school if given hide flag", async () => {
         const props: Props = {
