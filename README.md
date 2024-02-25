@@ -4,8 +4,11 @@ Collection of components for showcasing your leetcode profile in your portfolio 
 
 ## Demo
 
-[Example Website](https://)
-<!-- Put image -->
+[Example Website](https://react-leetcode-exampple.vercel.app/)
+
+
+
+This will create a table with two rows and three columns in the first row, and two columns in the second row, with each cell containing an image. Adjust the file paths (`images/image1.png`, `images/image2.png`, etc.) according to your actual file locations.
 
 ## Features
 
