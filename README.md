@@ -1,30 +1,149 @@
-# React + TypeScript + Vite
+# React-Leetcode
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Collection of components for showcasing your leetcode profile in your portfolio ✨. Built with [React](https://react.dev), [TailwindCss](https://tailwindcss.com) and [Vite](https://vite.dev)
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Example Website](https://)
+<!-- Put image -->
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- 📈 Clean and simple LeetCode stats, as reusable components
+- 🎨 Customizable themes and styles
+- 🎉 Fully customizable using CSS 
+- 🍀 Open source - [MIT License](./LICENSE)
+- ⚙️ Extended-Components: `activity`, `contest`, `heatmap` and `recent-submission`
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
+With npm:
+
+```bash
+npm install react-leetcode
+```
+
+With Yarn:
+
+```bash
+yarn add react-leetcode
+```
+
+## Usage
+
+Each Component has their own default properties. You can overwrite the defaults by passing props into the loaders.
+
+### Example
+
+```tsx
+import { UserProfileDetails } from "react-leetcode";
+
+function App() {
+  return (
+    <div className="w-full flex justify-center items-center">
+      <UserProfileDetails userName="sudhanva_nadiger__" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+## Note
+If you simply use this component it will throw `CORS` error.
+ - While developing setup the proxy.
+
+  - Ex: Incase you are using vite for your react project add this to `vite.config.ts`:
+```ts
+import { defineConfig } from 'vitest/config';
+import react from '@vitejs/plugin-react';
+export default defineConfig({
+  plugins: [react()],
+
+  // Add this part to your config file
+  server: {
+    open: true,
+    cors:  true,
+    proxy: {
+      '/leetcode': {
+        target: 'https://leetcode.com/graphql',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/leetcode/, '')
+      },
+    }
   },
+})
+```
+
+- While deploying the website you should configure revere proxy from the deployment platform.
+- Ex: If you are deploying your site in vercel add `vercel.json` file to the roor of your project folder with this content.
+```json
+// vercel.json
+{
+    "rewrites": [
+      {
+        "source": "/leetcode",
+        "destination": "https://leetcode.com/graphql"
+      }
+    ]
 }
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Development
+- clone the repo
+```bash
+git clone https://github.com/Sudhanva-Nadiger/react-leetcode.git
+```
+- Install the packages
+```bash
+npm install
+#or
+yarn install
+```
+
+- To run example website
+```bash
+cd example
+
+npm run dev
+#or
+yarn dev
+```
+
+## Testing
+This package uses [Vitest](https://vitest.dev) and [React-Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+- Run the test
+```bash
+npm run test
+#or
+yarn test
+```
+
+
+## Contributing
+If you would like to contribute to this project, please follow these steps:
+
+- Fork the repo
+- Clone the repo `git clone https://github.com/Sudhanva-Nadiger/react-leetcode.git`
+- Create your feature branch (`git checkout -b feature/YourFeature`)
+- Commit your changes (`git commit -am 'Add some feature'`)
+- Push to the branch (`git push origin feature/YourFeature`)
+- Create a new Pull Request
+
+## License
+`react-leetcode` is released under the MIT license.
+
+## References
+1. [React](https://react.dev)
+2. [Vite](https://vite.dev)
+3. [Tailwindcss](https://tailwindcss.com)
+4. [Vitest](https://vitest.dev)
+5. [Leetcode-Stats-Card](https://github.com/JacobLinCool/LeetCode-Stats-Card)
+6. [Leetcode-Query](https://github.com/JacobLinCool/LeetCode-Query)
+7. [Create-library-fast-blog](https://dev.to/receter/how-to-create-a-react-component-library-using-vites-library-mode-4lma)
+8. [Testing-blog](https://medium.com/@masbagaspn/unit-testing-react-application-with-vitest-and-react-testing-library-910f6f4dc675)
+
+## Thank You
