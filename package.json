@@ -1,7 +1,7 @@
 {
   "name": "react-leetcode",
   "description": "React utiliy components for leetcode. Users can use the components in their app/portfolio to showcase their leetcode profile.",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "author": "Sudhanva Nadiger",
   "license": "MIT",
