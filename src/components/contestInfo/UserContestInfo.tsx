@@ -14,7 +14,8 @@ export type Props = {
     primaryColor?: string;
     secondaryColor?: string;
     bgColor?: string;
-  }
+  },
+  loadingComponent?: JSX.Element;
 }
 
 /**
@@ -38,6 +39,7 @@ const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
     secondaryColor: "rgba(209,213,219,1)",
     bgColor: "rgba(68,64,60,1)"
   },
+  loadingComponent
 }: Props, ref) => {
 
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -56,7 +58,7 @@ const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
   }, [history]);
 
   if (!data || isLoading || error) return (
-    <LoadingOrError error={error} loading={isLoading} />
+    <LoadingOrError error={error} loading={isLoading} loadingComponent={loadingComponent} />
   );
 
   return (

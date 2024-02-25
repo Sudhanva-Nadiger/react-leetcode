@@ -49,6 +49,53 @@ function App() {
 export default App;
 ```
 
+## Component Props
+
+### UserProfilDetails Props
+| Name             | Type                            | Default Value                             | Description                                                                             |
+|------------------|---------------------------------|--------------------------------------------|-----------------------------------------------------------------------------------------|
+| `userName`       | `string`                        | -                                          | The username for which the profile details will be fetched and displayed.               |
+| `theme`          | `{ primaryColor?: string; secondaryColor?: string; bgColor?: string; }` | `{ primaryColor: "rgba(34,211,238,1)", secondaryColor: "rgba(209,213,219,1)", bgColor: "rgba(68,64,60,1)" }` | An object defining the colors for the profile details component.                        |
+| `loadingComponent` | `ReactNode`                  | -                                          | A custom loading component to be displayed while fetching data.                         |
+| `showRank`       | `boolean`                       | `true`                                     | Indicates whether to display the user's rank.                                           |
+| `hideLocation`   | `boolean`                       | `false`                                    | Indicates whether to hide the user's location information.                              |
+| `hideSchool`     | `boolean`                       | `false`                                    | Indicates whether to hide the user's school information.                                 |
+| `hideWebsite`    | `boolean`                       | `false`                                    | Indicates whether to hide the user's website information.                                |
+| `hideSkills`     | `boolean`                       | `false`                                    | Indicates whether to hide the user's skills information.                                  |
+| `hideCompany`    | `boolean`                       | `false`                                    | Indicates whether to hide the user's company information. 
+| `ref`               | `React.Ref<HTMLDivElement>`         | -                                | The ref to attach to the component's root element.                     |
+
+### UserSolvedProblemsStats & UserHeatMap Props
+
+| Name              | Type                               | Default Value                    | Description                                                                                                           |
+|-------------------|------------------------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `userName`        | `string`                           | -                                | The username of the user.                                                                                             |
+| `loadingComponent`| `React.ReactNode`                  | -                                | Custom loading component to be displayed.                                                                             |
+| `theme`           | `{ primaryColor?: string; secondaryColor?: string; bgColor?: string; }` | `{ primaryColor: "rgba(34,211,238,1)", secondaryColor: "rgba(209,213,219,1)", bgColor: "rgba(68,64,60,1)" }` | An object containing custom theme colors.                                                                                                              
+| `showUserName`    | `boolean`                            | `true`                             | Flag indicating whether to show the user's name.                                                                      |
+| `ref`               | `React.Ref<HTMLDivElement>`         | -                                | The ref to attach to the component's root element.                                                                    |
+
+### UserRecentSubmission & UserContestInfo Props
+
+| Name                  | Type                               | Default Value                    | Description                                                                                                           |
+|-----------------------|------------------------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| `userName`            | `string`                           | -                                | The username of the user.                                                                                             |
+| `loadingComponent`    | `JSX.Element`                      | -                                | The loading component to display.                                                                                     |
+| `theme`               | `{ primaryColor?: string; secondaryColor?: string; bgColor?: string; }` | `{ primaryColor: "rgba(34,211,238,1)", secondaryColor: "rgba(209,213,219,1)", bgColor: "rgba(68,64,60,1)" }` | The theme configuration object containing primaryColor, secondaryColor, and bgColor fields.                         |
+| `ref`                 | `React.Ref<HTMLDivElement>`        | -                                | The ref to attach to the component's root element.                                                            |
+
+- If you dont provide loading component the default loader will appear
+```tsx
+<div id="loading_container" className="flex flex-col">
+    <div id="loading_dots_container" className="flex items-center justify-center gap-2 animate-pulse">
+        <div className="w-1 h-1 bg-gray-600 rounded-full" />
+        <div className="w-1 h-1 bg-gray-600 rounded-full" />
+        <div className="w-1 h-1 bg-gray-600 rounded-full" />
+    </div>
+    <p id="loading_text" className="text-[10px] text-white font-bold text-center ml-[12px]">Loading...</p>
+</div>
+```
+
 ## Note
 If you simply use this component it will throw `CORS` error.
  - While developing setup the proxy.
