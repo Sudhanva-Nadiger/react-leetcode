@@ -63,7 +63,7 @@ const UserContestInfo = forwardRef<HTMLDivElement, Props>(({
     <div
       id="user_contest_info_container"
       ref={ref}
-      className='sm:w-[500px] w-full p-4 rounded-lg'
+      className='w-full p-4 rounded-lg h-full'
       style={{ background: theme.bgColor }}
     >
       {activeIndex === -1 ? (

@@ -55,8 +55,11 @@ const LineChart = ({
 
     return (
         <svg
-            viewBox={`0 0 ${width} ${height}`}
+            viewBox={`0 30 ${width} ${height}`}
             id="line_chart_container"
+            style={{
+                transform: 'scaleY(0.7)'
+            }}
         >
             <LabelsXAxis
                 height={height}
@@ -66,10 +69,12 @@ const LineChart = ({
             />
 
             <polyline
+                width={"100%"}
+                height={"50"}
                 id="line_chart_path"
                 className="w-full"
                 fill="none"
-                stroke="#0074d9"
+                stroke="rgb(202,138,4)"
                 strokeWidth={STROKE}
                 points={values.points}
             />
@@ -84,7 +89,7 @@ const LineChart = ({
                         cx={(element.x / maximumXFromData) * chartWidth + padding}
                         cy={(element.y / maximumYFromData) * chartHeight + padding}
                         r={STROKE * (activeIndex === index ? 3 : 2)}
-                        fill="#0074d9"
+                        fill="rgb(202,138,4)"
                     />
                 ))}
             </g>

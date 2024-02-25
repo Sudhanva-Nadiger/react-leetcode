@@ -1,6 +1,10 @@
 import {type ReactNode, useEffect, useRef, useState } from "react";
 import '../../index.css';
 export type Props = {
+    theme?: {
+        primaryColor?: string;
+        secondaryColor?: string;
+    }
     icon: JSX.Element;
     title: ReactNode;
     id: string;
@@ -20,9 +24,14 @@ function MiscellaneousDetail({
     icon,
     title,
     id,
-    link
+    link,
+    theme = {
+        primaryColor: "rgba(34,211,238,1)",
+        secondaryColor: "rgba(209,213,219,1)"
+    }
 }: Props) {
   const [showTooltip, setShowTooltip] = useState(false);
+  const [hover, setHover] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -62,13 +71,32 @@ function MiscellaneousDetail({
 
   if(link) {
     return (
-      <a id={id} className="misc_content_container flex items-start gap-2 mb-2 text-gray-300 hover:text-cyan-400" target="_blank" href={link}>{content}</a>
+      <a 
+        style={{
+          color: hover ? theme.primaryColor : theme.secondaryColor,
+        }} 
+        onMouseOver={()=> setHover(true)} 
+        onMouseOut={()=> setHover(false)}
+        id={id} 
+        className={`misc_content_container flex items-start gap-2 mb-2 hover:text-[${theme.primaryColor}]`} 
+        target="_blank" href={link}
+      >
+        {content}
+      </a>
     )
   }
   
 
   return (
-    <div id={id} className="misc_content_container flex items-start gap-2 mb-2 text-gray-300 hover:text-cyan-400">
+    <div 
+      id={id} 
+      className="misc_content_container flex items-start gap-2 mb-2"
+      style={{
+        color: hover ? theme.primaryColor : theme.secondaryColor,
+      }} 
+      onMouseOver={()=> setHover(true)} 
+      onMouseOut={()=> setHover(false)}
+    >
         {content}
     </div>
   )

@@ -56,7 +56,7 @@ const RecentSubmission = forwardRef<HTMLDivElement, Props>(({
         <div
             id="recent-submissions_container"
             ref={ref}
-            className="w-full h-full p-2"
+            className="p-2 w-full"
         >
             <div className="flex flex-col w-full h-full">
                 <div style={{

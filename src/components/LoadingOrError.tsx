@@ -45,8 +45,6 @@ function LoadingOrError({
     }
 
     if(error) {
-        console.log(error);
-        
         return (
             <div id="error_container" className="text-red-500">
                 Somethinng went wrong, Could not load data

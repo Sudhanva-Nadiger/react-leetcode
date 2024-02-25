@@ -1,4 +1,4 @@
-import { forwardRef, memo, useCallback } from "react";
+import { forwardRef, memo, useCallback, useEffect, useRef, useState } from "react";
 import leetcodeQuery from "../../utils/leetcodeQuery";
 import { useFetch } from "../../hooks";
 import LoadingOrError from "../LoadingOrError";
@@ -24,18 +24,21 @@ export type Props = {
  */
 const Block = ({
     count,
+    width
 }: {
     i: number,
     count: number,
-    date: string
+    date: string,
+    width: number,
 }) => {
     return (
         <>
             <div
                 style={{
                     backgroundColor: `rgba(20, 255, 20, ${calcOpacity(count)})`,
+                    width: `${width}px`
                 }}
-                className="sq-block w-[7px] h-[7px] rounded-sm border border-black border-opacity-30"
+                className={`sq-block aspect-square rounded-sm border border-black border-opacity-30`}
             />
         </>
     )
@@ -64,12 +67,19 @@ const HeatMap = forwardRef<HTMLDivElement, Props>(({
     },
     showUserName = false
 }, ref) => {
+    const [width, setWidth] = useState(69);
+    const divRef = useRef<HTMLDivElement>(null);
 
     const fetchData = useCallback(() => {
         return leetcodeQuery.fetchUserHeatMap(userName);
     }, [userName])
 
     const { data, loading: isLoading, error } = useFetch(fetchData);
+
+    useEffect(() => {
+        const newwidth = divRef.current?.getBoundingClientRect().width;
+        setWidth(newwidth || 69);
+    }, [isLoading])
 
     if (isLoading || error || !data) {
         return (
@@ -84,51 +94,49 @@ const HeatMap = forwardRef<HTMLDivElement, Props>(({
     const last = data.length - 1;
 
     return (
-        <div
-            id="heat_map_container"
-            style={{
-                background: theme.bgColor
-            }}
-            ref={ref}
-            className="w-full sm:w-[500px] gap-1 rounded-lg p-4 flex flex-col items-center justify-center"
-        >
-            <h2
-                id="heat_map_title"
-                style={{ color: theme.primaryColor }}
-                className="flex justify-between font-medium w-full"
-            >
-                <span>Heatmap (Last 52 Weeks)</span>
-                {showUserName && <span>{userName}</span>}
-            </h2>
+        <div ref={divRef} className="w-full">
             <div
-                id="heat_map"
+                id="heat_map_container"
                 style={{
-                    width: "100%",
-                    height: "100%",
-                    display: 'grid',
-                    gridTemplateRows: 'repeat(7, 1fr)',
-                    gridAutoFlow: 'column',
-                    rowGap: '1px',
-                    columnGap: '2px',
-                    justifyContent: 'center',
+                    background: theme.bgColor
                 }}
+                ref={ref}
+                className="w-full gap-1 rounded-lg p-4 flex flex-col items-center justify-center"
             >
-                {data.map((element, index) => (
-                    <Block
-                        key={index}
-                        i={index}
-                        count={element.submissionCount}
-                        date={element.date}
-                    />
-                ))}
-            </div>
-            <div
-                id="heat_map_date_range"
-                style={{ color: theme.secondaryColor }}
-                className="flex justify-between w-full text-xs"
-            >
-                <span>{data[0].date}</span>
-                <span>{data[last - 1].date}</span>
+                <h2
+                    id="heat_map_title"
+                    style={{ color: theme.primaryColor }}
+                    className="flex justify-between font-medium w-full"
+                >
+                    <span>Heatmap (Last 52 Weeks)</span>
+                    {showUserName && <span>{userName}</span>}
+                </h2>
+                <div
+                    id="heat_map"
+                    className="w-full h-full grid grid-rows-7 grid-flow-col justify-center"
+                    style={{
+                        rowGap: '1px',
+                        columnGap: '2px',
+                    }}
+                >
+                    {data.map((element, index) => (
+                        <Block
+                            width={width / 69}
+                            key={index}
+                            i={index}
+                            count={element.submissionCount}
+                            date={element.date}
+                        />
+                    ))}
+                </div>
+                <div
+                    id="heat_map_date_range"
+                    style={{ color: theme.secondaryColor }}
+                    className="flex justify-between w-full"
+                >
+                    <span>{data[0].date}</span>
+                    <span>{data[last - 1].date}</span>
+                </div>
             </div>
         </div>
     )

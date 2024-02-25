@@ -51,6 +51,11 @@ export type Props = {
  */
 const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
     userName,
+    theme = {
+        primaryColor: "rgba(34,211,238,1)",
+        secondaryColor: "rgba(209,213,219,1)",
+        bgColor: "rgba(68,64,60,1)"
+    },
     loadingComponent,
     showRank = true,
     hideLocation = false,
@@ -80,7 +85,10 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
     const { githubUrl, linkedinUrl, twitterUrl } = data;
 
     return (
-        <div id="user_profile_detail_container" ref={ref} className="shadow-md flex flex-col rounded-2xl w-[320px] bg-stone-700 text-cyan-400 items-start p-4">
+        <div style={{
+            background: theme.bgColor,
+            color: theme.secondaryColor
+        }} id="user_profile_detail_container" ref={ref} className="w-full shadow-md flex flex-col rounded-2xl items-start p-4">
             <div id="user_main_content" className="flex justify-center gap-4">
                 <img
                     id="user_avatar"
@@ -92,16 +100,20 @@ const UserProfileDetails = forwardRef<HTMLDivElement, Props>(({
                     id="user_name_and_rank_container"
                     className="flex flex-col items-start"
                 >
-                    <p id="user_real_name" className="text-xl font-semibold">
+                    <p style={{
+                        color: theme.primaryColor
+                    }} id="user_real_name" className="text-xl font-semibold">
                         {realName}
                     </p>
-                    <p id="user_name" className="text-sm text-gray-300">
+                    <p id="user_name" className="text-sm">
                         {userName}
                     </p>
 
                     {showRank && (
                         <div id="rank_details" className="flex gap-2 text-sm mt-auto">
-                            <p id="rank_label" className="text-gray-300">Rank :</p>
+                            <p style={{
+                                color: theme.secondaryColor
+                            }} id="rank_label">Rank :</p>
                             <p id="rank_value" className="font-semibold">{ranking}</p>
                         </div>
                     )}

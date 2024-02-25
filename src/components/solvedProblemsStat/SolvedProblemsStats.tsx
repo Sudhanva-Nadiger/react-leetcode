@@ -74,16 +74,16 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
         <div
             id="solved_problems_stats_container"
             ref={ref}
-            className="flex flex-col w-[400px] items-center rounded-xl px-4 py-2 gap-2"
+            className="w-full flex flex-col items-center rounded-xl px-4 py-2 gap-2"
             style={{ background: theme.bgColor }}
         >
 
-            <div id="solved_problems_stats_label" className="w-full flex justify-between">
+            <div id="solved_problems_stats_label" className="w-full flex justify-between p-3">
                 <span className="text-sm font-semibold" style={{ color: theme.secondaryColor }}>{showUserName ? userName : "Solved Problems"}</span>
                 {showUserName && <span className="text-sm font-semibold pr-1" style={{ color: theme.secondaryColor }}>{"#" + data.rank}</span>}
             </div>
 
-            <div id="solved_problems_stats_progress_deails" className="w-full flex justify-between">
+            <div id="solved_problems_stats_progress_deails" className="w-full flex justify-between items-center">
                 <OverallProgress
                     totalQuestions={totalQuestions.count!}
                     totalSolved={totalSolved.count!}
@@ -99,7 +99,7 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
                             const percentage = (solved / total) * 100;
 
                             return (
-                                <div id={`progress_bar_${difficulty.difficulty}`} key={difficulty.difficulty} className="progress_bar mt-3 first:mt-0 first:space-y-0 space-y-1 w-full">
+                                <div id={`progress_bar_${difficulty.difficulty}`} key={difficulty.difficulty} className="progress_bar mt-3 first:mt-0 w-full">
                                     <div className="flex justify-between px-1">
                                         <span className="text-sm" style={{ color: theme?.secondaryColor }}>{difficulty.difficulty}</span>
                                         <span className="w-[4.5rem] text-end">
@@ -107,7 +107,7 @@ const SolvedProblemsStats = forwardRef<HTMLDivElement, Props>(({
                                             <span className="text-xs pb-2" style={{ color: theme.secondaryColor }}>{" /" + difficulty.count}</span>
                                         </span>
                                     </div>
-                                    <div className={`${getColor[difficulty.difficulty]} progress_label bg-opacity-20 w-full  rounded-full h-2 mb-4 dark:bg-gray-700`}>
+                                    <div className={`${getColor[difficulty.difficulty]} progress_label bg-opacity-20 w-full  rounded-full h-2 dark:bg-gray-700`}>
                                         <div style={{ width: `${percentage}%` }}>
                                             <div className={`${getColor[difficulty.difficulty]} animate-slide h-2 rounded-full dark:bg-blue-500`} />
                                         </div>
