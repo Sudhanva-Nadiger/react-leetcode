@@ -11,20 +11,18 @@
     "type": "git",
     "url": "https://github.com/Sudhanva-Nadiger/react-leetcode"
   },
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js",
+      "import": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "styles": "./dist/style.css"
+      "styles": "./dist/index.css"
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/index.css"
   },
   "publishConfig": {
     "access": "public"
