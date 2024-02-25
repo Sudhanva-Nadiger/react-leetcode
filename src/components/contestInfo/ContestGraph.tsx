@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-
+import '../../index.css';
 import { ContestInfo } from "../../types";
 import { LineChartCalculations } from "../../utils";
 

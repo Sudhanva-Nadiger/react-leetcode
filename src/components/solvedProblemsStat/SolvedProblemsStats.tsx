@@ -1,5 +1,5 @@
 import { forwardRef, memo, useCallback } from "react";
-
+import '../../index.css';
 import { useFetch } from "../../hooks"
 import leetcodeQuery from "../../utils/leetcodeQuery";
 import { SubmitStats } from "../../types";

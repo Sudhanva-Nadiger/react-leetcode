@@ -1,5 +1,5 @@
 import { ContestRanking } from "../../types"
-
+import '../../index.css';
 type Props = {
     contestData: ContestRanking;
     theme?: {

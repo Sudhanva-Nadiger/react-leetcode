@@ -24,6 +24,9 @@
     },
     "./dist/style.css": "./dist/index.css"
   },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "publishConfig": {
     "access": "public"
   },

@@ -3,7 +3,7 @@ import leetcodeQuery from "../../utils/leetcodeQuery";
 import { useFetch } from "../../hooks";
 import LoadingOrError from "../LoadingOrError";
 import { calcOpacity } from "../../utils"
-
+import '../../index.css';
 export type Props = {
     userName: string,
     loadingComponent?: JSX.Element

@@ -1,5 +1,5 @@
 import {type ReactNode, useEffect, useRef, useState } from "react";
-
+import '../../index.css';
 export type Props = {
     icon: JSX.Element;
     title: ReactNode;

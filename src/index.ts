@@ -1,5 +1,3 @@
-import './index.css';
-
 import UserProfileDetails from './components/userProfileDetails/UserProfileDetails';
 import UserSolvedProblemsStats from './components/solvedProblemsStat/SolvedProblemsStats';
 import UserRecentSubmission from './components/recentSubmissions/recentSubmission';

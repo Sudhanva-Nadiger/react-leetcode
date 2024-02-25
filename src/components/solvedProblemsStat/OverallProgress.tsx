@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../../index.css';
 type Props = {
     totalQuestions: number,
     totalSolved: number,

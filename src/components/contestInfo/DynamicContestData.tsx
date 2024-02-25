@@ -1,5 +1,5 @@
 import { ContestInfo } from '../../types';
-
+import '../../index.css';
 type Props = {
     contestData: ContestInfo
     theme?: {

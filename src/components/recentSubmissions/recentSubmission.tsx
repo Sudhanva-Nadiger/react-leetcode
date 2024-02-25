@@ -3,7 +3,7 @@ import leetcodeQuery from "../../utils/leetcodeQuery";
 import { useFetch } from "../../hooks";
 import { RecentSubmission as TRecentSubmission } from "../../types";
 import LoadingOrError from "../LoadingOrError";
-
+import '../../index.css';
 export type Props = {
     userName: string,
     loadingComponent?: JSX.Element

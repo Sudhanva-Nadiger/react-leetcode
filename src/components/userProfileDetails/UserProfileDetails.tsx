@@ -1,5 +1,5 @@
 import {type ReactNode, forwardRef, useCallback, memo } from "react";
-
+import '../../index.css';
 import leetcodeQuery from "../../utils/leetcodeQuery"
 import { MatchedUser } from "../../types"
 import { useFetch } from "../../hooks";

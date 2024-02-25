@@ -7,7 +7,7 @@ import { getCordinates } from '../../utils';
 import ContestStaticData from './ContestStaticData';
 import LoadingOrError from '../LoadingOrError';
 import DynamicContestData from './DynamicContestData';
-
+import '../../index.css';
 export type Props = {
   userName: string;
   theme?: {
