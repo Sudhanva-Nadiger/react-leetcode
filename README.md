@@ -129,7 +129,7 @@ export default defineConfig({
 })
 ```
 
-- While deploying the website you should configure revere proxy from the deployment platform.
+- While deploying the website you should configure reverse proxy from the deployment platform.
 - Ex: If you are deploying your site in vercel add `vercel.json` file to the roor of your project folder with this content.
 ```json
 // vercel.json
