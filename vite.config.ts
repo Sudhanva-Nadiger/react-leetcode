@@ -19,17 +19,29 @@ export default defineConfig({
     rollupOptions: {
       external: ['react', 'react-dom', 'tailwindcss'],
       input: Object.fromEntries(
-               glob.sync('src/**/*.{ts,tsx}').map(file => [
-                 // The name of the entry point
-                 // lib/nested/foo.ts becomes nested/foo
-                 relative(
-                   'src',
-                   file.slice(0, file.length - extname(file).length)
-                 ),
-                 // The absolute path to the entry file
-                 // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
-                 fileURLToPath(new URL(file, import.meta.url))
-               ])
+               glob.sync([
+                'src/components/**/*.{ts,tsx}',
+                'src/hooks/**/*.{ts,tsx}',
+                'src/utils/**/*.{ts,tsx}',
+                'src/types/**/*.{ts,tsx}',
+                'src/styles/**/*.{ts,tsx, css}',
+                'src/index.{ts,tsx, css}',
+                'src/vite-env.{ts,tsx}',
+               ]).map(file => {
+                
+                return [
+                  // The name of the entry point
+                  // lib/nested/foo.ts becomes nested/foo
+                  
+                  relative(
+                    'src',
+                    file.slice(0, file.length - extname(file).length)
+                  ),
+                  // The absolute path to the entry file
+                  // lib/nested/foo.ts becomes /project/lib/nested/foo.ts
+                  fileURLToPath(new URL(file, import.meta.url))
+                ]
+               })
              ),
       output: {
         entryFileNames: '[name].js',
