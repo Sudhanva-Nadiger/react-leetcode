@@ -9,10 +9,6 @@ Collection of components for showcasing your leetcode profile in your portfolio 
 <img src="https://github.com/Sudhanva-Nadiger/react-leetcode/assets/93595710/a7744333-3449-40e4-bd3a-0cedd265af6e" width="350" />
 
 
-
-
-This will create a table with two rows and three columns in the first row, and two columns in the second row, with each cell containing an image. Adjust the file paths (`images/image1.png`, `images/image2.png`, etc.) according to your actual file locations.
-
 ## Features
 
 - 📈 Clean and simple LeetCode stats, as reusable components
