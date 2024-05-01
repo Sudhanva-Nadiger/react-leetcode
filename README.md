@@ -183,7 +183,11 @@ If you would like to contribute to this project, please follow these steps:
 - Create a new Pull Request
 
 ## License
-`react-leetcode` is released under the MIT license.
+`react-leetcode` is released under the MIT license. 
+<br />
+Its free to use for any projects. No attribution required. 
+<br />
+But hey, let me know if you do. I'd love to see your portfolio.
 
 ## References
 1. [React](https://react.dev)
