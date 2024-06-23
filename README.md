@@ -8,6 +8,7 @@ Collection of components for showcasing your leetcode profile in your portfolio 
 
 <img src="https://github.com/Sudhanva-Nadiger/react-leetcode/assets/93595710/a7744333-3449-40e4-bd3a-0cedd265af6e" width="350" />
 
+Complete blog: [my-experience-publishing-first-npm-package](https://sudhanva-nadiger-blogs.hashnode.dev/my-experience-publishing-first-npm-package)
 
 ## Features
 
